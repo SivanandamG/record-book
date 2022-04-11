@@ -12,13 +12,15 @@ function Dialogform({handleData,list}) {
      let data = [{ name:"IIT Madras", noOfSeats:4 },{ name:"IIT Kanpur", noOfSeats:2 },{ name:"IIT Bombay", noOfSeats:1 },{ name:"IIT Hyderabad", noOfSeats:3 },{ name:"IIT Roorkee", noOfSeats:1 },{ name:"IIM Ahemedabad", noOfSeats:2 },];
 
      let result = [];
+
      list  = list.sort((a,b)=>a.rank-b.rank);
+
      for(let i = 0 ; i < list.length ; i++){
           let person = {
                     name : list[i].name,
                     rank : list[i].rank,
                     alloted : "no college"
-          };
+               };
           for(let j = 0 ; j < data.length ;j++ ){
                if(data[j].name == list[i].preferance[0]){
                     if(data[j].noOfSeats !== 0){
@@ -46,31 +48,31 @@ function Dialogform({handleData,list}) {
           result.push(person);
      }
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+     const handleClickOpen = () => {
+     setOpen(true);
+     };
 
 
-  const handleClickOpenResult = () => {
-     setOpenResult(!openResult);
-     setForm({name:"",rank:"",preferance:[]});
-   };
- 
-  const handleClose = () => {
-    setOpen(false);
-  };
+     const handleClickOpenResult = () => {
+          setOpenResult(!openResult);
+          setForm({name:"",rank:"",preferance:[]});
+     };
+     
+     const handleClose = () => {
+     setOpen(false);
+     };
 
 
 
-   
-   
-  const  [form,setForm] = useState({name:"",rank:"",preferance:[]});
+     
+     
+     const  [form,setForm] = useState({name:"",rank:"",preferance:[]});
 
-const handleSave = () => {
-     handleData(form);
-     handleClose();
-     setForm({name:"",rank:"",preferance:[]})
-}
+     const handleSave = () => {
+          handleData(form);
+          handleClose();
+          setForm({name:"",rank:"",preferance:[]})
+     }
 
   return (
        <div id="dialogbox">
@@ -148,13 +150,13 @@ const handleSave = () => {
 
                  <tbody>
                       {
-                           result.map((a)=>{
-                                return(
-                                   <tr key={Date.now()}> 
-                                        <td>{a.name}</td>
-                                        <td>{a.rank}</td>
-                                        <td>{a.alloted}</td>
-                                   </tr>)})
+                         result.map((a)=>{
+                              return(
+                              <tr key={Date.now()}> 
+                                   <td>{a.name}</td>
+                                   <td>{a.rank}</td>
+                                   <td>{a.alloted}</td>
+                              </tr>)})
                       }
 
                  </tbody>
