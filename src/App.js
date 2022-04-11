@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
+import Dialogform from "./Components/Dialog";
 import './App.css';
+import AllotmentTable from "./Components/Allotment";
 
 function App() {
+const [data,setData] = useState([]);
+let handleData = (form)=>{
+  setData([...data,form]);
+  console.log(data);
+}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AllotmentTable list = {data}/>
+      <Dialogform handleData={handleData} list = {data}/>
     </div>
   );
 }
