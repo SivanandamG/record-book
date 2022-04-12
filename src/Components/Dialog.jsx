@@ -14,7 +14,7 @@ function Dialogform({handleData,list}) {
      let result = [];
 
      list  = list.sort((a,b)=>a.rank-b.rank);
-
+console.log(list);
      for(let i = 0 ; i < list.length ; i++){
           let person = {
                     name : list[i].name,
@@ -47,7 +47,7 @@ function Dialogform({handleData,list}) {
           }
           result.push(person);
      }
-
+console.log(result)
      const handleClickOpen = () => {
      setOpen(true);
      };
